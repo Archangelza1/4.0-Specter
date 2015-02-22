@@ -1,7 +1,7 @@
 #include "infiSTAR_AdminMenu.hpp"
-author = "Tonic";
+author = "Tonic, Edited By Jamie, Archangel";
 onLoadName = "Altis Life RPG v4.0";
-onLoadMission = "An RPG game mode developed by Tonic";
+onLoadMission = "Map Editing Done By Distinct";
 joinUnassigned = 1;
 respawn = BASE;
 respawndelay = 5;
