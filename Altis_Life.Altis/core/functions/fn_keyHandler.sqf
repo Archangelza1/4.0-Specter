@@ -256,8 +256,7 @@ switch (_code) do {
 			[] call life_fnc_fadeSound;
 			_handled = true;
 				
-		};
-	
+		};	
 };
 
 _handled;
