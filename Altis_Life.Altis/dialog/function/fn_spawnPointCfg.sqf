@@ -27,13 +27,22 @@ switch (_side) do
 	
 	case civilian:
 	{
+		
+		if(license_civ_rebel) then {
+		_return = [
+					["Rebelop","Rebel North","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
+					["Rebelop_1","Rebel South","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
+					["Gravia_Reb_Spawn","Gravia","\a3\ui_f\data\map\MapControl\watertower_ca.paa"]
+				];
+		} else {	
+		
 		_return = [
 			["civ_spawn_1","Kavala","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
 			["civ_spawn_2","Pyrgos","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
 			["civ_spawn_3","Athira","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
 			["civ_spawn_4","Sofia","\a3\ui_f\data\map\MapControl\watertower_ca.paa"]
 		];
-		
+	};
 		if(count life_houses > 0) then {
 			{
 				_pos = call compile format["%1",_x select 0];
@@ -45,11 +54,19 @@ switch (_side) do
 		};	
 	};
 	
-	case independent: {
+	case independent: 
+	{
 		_return = [
 			["medic_spawn_1","Kavala Hospital","\a3\ui_f\data\map\MapControl\hospital_ca.paa"],
 			["medic_spawn_2","Athira Regional","\a3\ui_f\data\map\MapControl\hospital_ca.paa"],
 			["medic_spawn_3","Pygros Hospital","\a3\ui_f\data\map\MapControl\hospital_ca.paa"]
+		];
+	};
+	
+	case east:
+	{
+		_return = [
+			["bounty_hq","KnG Hunters HQ","\a3\ui_f\data\map\MapControl\watertower_ca.paa"]
 		];
 	};
 };

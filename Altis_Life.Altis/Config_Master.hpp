@@ -20,6 +20,8 @@
 #define true 1
 #define false 0
 #include "Config_Clothing.hpp"
+#include "Config_Shops.hpp"
+
 
 /*
 	Master settings for various features and functionality	
@@ -31,26 +33,25 @@ class Life_Settings {
 
 	/* Revive system settings */
 	revive_cops = true; //true to enable cops the ability to revive everyone or false for only medics/ems.
-	revive_fee = 2000; //Revive fee that players have to pay and medics / EMS are rewarded
+	revive_fee = 1500; //Revive fee that players have to pay and medics / EMS are rewarded
 	
 	/* House related settings */
 	house_limit = 5; //Maximum amount of houses a player can own.
 
 	/* Gang related settings */
-	gang_price = 1000000; //Price for creating a gang, remember they are persistent so keep it reasonable to avoid millions of gangs.
-	gang_upgradeBase = 200000; //The base cost for upgrading slots in a gang
+	gang_price = 75000; //Price for creating a gang, remember they are persistent so keep it reasonable to avoid millions of gangs.
+	gang_upgradeBase = 10000; //The base cost for upgrading slots in a gang
 	gang_upgradeMultiplier = 2.5; //Not sure if in use?
 
 	/* Player-related systems */
-	enable_fatigue = false; //Set to false to disable the ARMA 3 false system.
-	total_maxWeight = 45; //Identifies the max carrying weight (gets adjusted throughout game when wearing different types of clothing).
-	total_maxWeightT = 24;  //Static variable for the maximum weight allowed without having a backpack
+	enable_fatigue = true; //Set to false to disable the ARMA 3 false system.
+	total_maxWeight = 24; //Static variable for the maximum weight allowed without having a backpack
 	paycheck_period = 5; //Scaled in minutes
 	
 	/* Impound Variables */
-	impound_car = 2500; //Price for impounding cars
-	impound_boat = 4000; //Price for impounding boats
-	impound_air = 3500; //Price for impounding helicopters / planes
+	impound_car = 350; //Price for impounding cars
+	impound_boat = 250; //Price for impounding boats
+	impound_air = 850; //Price for impounding helicopters / planes
 
 	/* Car-shop Settings */
 	vehicleShop_rentalOnly[] = { "B_MRAP_01_hmg_F", "B_G_Offroad_01_armed_F" };
@@ -122,7 +123,7 @@ class VirtualItems {
 	VITEMMACRO(fuelFull, "STR_Item_FuelF", "fuelFull", 5, 850, 500, false, -1, "icons\ico_fuel.paa")
 	VITEMMACRO(spikeStrip, "STR_Item_SpikeStrip", "spikeStrip", 15, 2500, 1200, false, -1, "")
 	VITEMMACRO(lockpick, "STR_Item_Lockpick", "lockpick", 1, 150, 75, false, -1, "")
-	VITEMMACRO(goldbar, "STR_Item_GoldBar", "goldBar", 12, -1, 300000, false, -1, "")
+	VITEMMACRO(goldbar, "STR_Item_GoldBar", "goldBar", 12, -1, 95000, false, -1, "")
 	VITEMMACRO(blastingcharge, "STR_Item_BCharge", "blastingCharge", 15, 35000, -1, true, -1, "icons\ico_blastingCharge.paa")
 	VITEMMACRO(boltcutter, "STR_Item_BCutter", "boltCutter", 5, 7500, -1, true, -1, "icons\ico_boltcutters.paa")
 	VITEMMACRO(defusekit, "STR_Item_DefuseKit", "defuseKit", 2, 2500, -1, false, -1, "")
@@ -131,25 +132,25 @@ class VirtualItems {
 
 	//Mined Items
 	VITEMMACRO(oil_unprocessed, "STR_Item_OilU", "oilUnprocessed", 7, -1, -1, false, -1, "")
-	VITEMMACRO(oil_processed, "STR_Item_OilP", "oilProcessed", 6, -1, 3500, false, -1, "")
+	VITEMMACRO(oil_processed, "STR_Item_OilP", "oilProcessed", 6, -1, 3200, false, -1, "")
 	VITEMMACRO(copper_unrefined, "STR_Item_CopperOre", "copperUnrefined", 4, -1, -1, false, -1, "")
 	VITEMMACRO(copper_refined, "STR_Item_CopperIngot", "copperRefined", 3, -1, 1500, false, -1, "")
 	VITEMMACRO(iron_unrefined, "STR_Item_IronOre", "ironUnrefined", 5, -1, -1, false, -1, "")
-	VITEMMACRO(iron_refined, "STR_Item_IronIngot", "ironRefined", 3, -1, 2100, false, -1, "")
+	VITEMMACRO(iron_refined, "STR_Item_IronIngot", "ironRefined", 3, -1, 3200, false, -1, "")
 	VITEMMACRO(salt_unrefined, "STR_Item_Salt", "saltUnrefined", 3, -1, -1, false, -1, "")
-	VITEMMACRO(salt_refined, "STR_Item_SaltR", "saltRefined", 1, -1, 2000, false, -1, "")
+	VITEMMACRO(salt_refined, "STR_Item_SaltR", "saltRefined", 1, -1, 1450, false, -1, "")
 	VITEMMACRO(sand, "STR_Item_Sand", "sand", 3, -1, -1, false, -1, "")
-	VITEMMACRO(glass, "STR_Item_Glass", "glass", 1, -1, 2200, false, -1, "")
+	VITEMMACRO(glass, "STR_Item_Glass", "glass", 1, -1, 1450, false, -1, "")
 	VITEMMACRO(diamond_uncut, "STR_Item_DiamondU", "diamondUncut", 4, -1, 750, false, -1, "")
-	VITEMMACRO(diamond_cut, "STR_Item_DiamondC", "diamondCut", 2, -1, 10000, false, -1, "")
+	VITEMMACRO(diamond_cut, "STR_Item_DiamondC", "diamondCut", 2, -1, 2000, false, -1, "")
 	VITEMMACRO(rock, "STR_Item_Rock", "rock", 6, -1, -1, false, -1, "")
-	VITEMMACRO(cement, "STR_Item_CementBag", "cement", 5, -1, 2600, false, -1, "")
+	VITEMMACRO(cement, "STR_Item_CementBag", "cement", 5, -1, 1950, false, -1, "")
 
 	//Drugs
 	VITEMMACRO(heroin_unprocessed, "STR_Item_HeroinU", "heroinUnprocessed", 6, -1, -1, true, -1, "")
-	VITEMMACRO(heroin_processed, "STR_Item_HeroinP", "heroinProcessed", 4, -1, 8000, true, -1, "")
+	VITEMMACRO(heroin_processed, "STR_Item_HeroinP", "heroinProcessed", 4, -1, 2560, true, -1, "")
 	VITEMMACRO(cannabis, "STR_Item_Cannabis", "cannabis", 4, -1, -1, true, -1, "")
-	VITEMMACRO(marijuana, "STR_Item_Marijuana", "marijuana", 3, 2800, 2900, true, -1, "icons\ico_marijuana.paa")
+	VITEMMACRO(marijuana, "STR_Item_Marijuana", "marijuana", 3, 2800, 2350, true, -1, "icons\ico_marijuana.paa")
 	VITEMMACRO(cocaine_unprocessed, "STR_Item_CocaineU", "cocaineUnprocessed", 6, -1, 3000, true, -1, "")
 	VITEMMACRO(cocaine_processed, "STR_Item_CocaineP", "cocaineProcessed", 4, -1, 5000, true, -1, "")
 
@@ -197,28 +198,29 @@ class VirtualItems {
 	CLASS ENTRY,DisplayName,VariableName,price,illegal,side indicator
 */
 class Licenses {
-	LICENSEMACRO(driver,"STR_License_Driver","driver",10000,false,"civ")
-	LICENSEMACRO(boat,"STR_License_Boat","boat",15000,false,"civ")
-	LICENSEMACRO(pilot,"STR_License_Pilot","pilot",250000,false,"civ")
-	LICENSEMACRO(gun,"STR_License_Firearm","gun",45000,false,"civ")
-	LICENSEMACRO(dive,"STR_License_Diving","dive",13000,false,"civ")
-	LICENSEMACRO(oil,"STR_License_Oil","oil",100000,false,"civ")
-	LICENSEMACRO(cAir,"STR_License_Pilot","cAir",250000,false,"cop")
-	LICENSEMACRO(coastguard,"STR_License_CG","cg",35000,false,"cop")
-	LICENSEMACRO(heroin,"STR_License_Heroin","heroin",600000,true,"civ")
-	LICENSEMACRO(marijuana,"STR_License_Marijuana","marijuana",50000,true,"civ")
-	LICENSEMACRO(medmarijuana,"STR_License_Medmarijuana","medmarijuana",50000,false,"civ")
-	LICENSEMACRO(rebel,"STR_License_Rebel","rebel",2000000,true,"civ")
+	LICENSEMACRO(driver,"STR_License_Driver","driver",500,false,"civ")
+	LICENSEMACRO(boat,"STR_License_Boat","boat",1000,false,"civ")
+	LICENSEMACRO(pilot,"STR_License_Pilot","pilot",25000,false,"civ")
+	LICENSEMACRO(gun,"STR_License_Firearm","gun",10000,false,"civ")
+	LICENSEMACRO(dive,"STR_License_Diving","dive",2000,false,"civ")
+	LICENSEMACRO(oil,"STR_License_Oil","oil",10000,false,"civ")
+	LICENSEMACRO(cAir,"STR_License_Pilot","cAir",15000,false,"cop")
+	LICENSEMACRO(coastguard,"STR_License_CG","cg",8000,false,"cop")
+	LICENSEMACRO(heroin,"STR_License_Heroin","heroin",25000,true,"civ")
+	LICENSEMACRO(marijuana,"STR_License_Marijuana","marijuana",19500,true,"civ")
+	LICENSEMACRO(medmarijuana,"STR_License_Medmarijuana","medmarijuana",15000,false,"civ")
+	LICENSEMACRO(rebel,"STR_License_Rebel","rebel",75000,true,"civ")
 	LICENSEMACRO(trucking,"STR_License_Truck","trucking",20000,false,"civ")
-	LICENSEMACRO(diamond,"STR_License_Diamond","diamond",1100000,false,"civ")
-	LICENSEMACRO(salt,"STR_License_Salt","salt",80000,false,"civ")
-	LICENSEMACRO(cocaine,"STR_License_Cocaine","cocaine",500000,false,"civ")
-	LICENSEMACRO(sand,"STR_License_Sand","sand",45000,false,"civ")
-	LICENSEMACRO(iron,"STR_License_Iron","iron",200000,false,"civ")
-	LICENSEMACRO(copper,"STR_License_Copper","copper",40000,false,"civ")
-	LICENSEMACRO(cement,"STR_License_Cement","cement",30000,false,"civ")
-	LICENSEMACRO(mAir,"STR_License_Pilot","mAir",250000,false,"med")
-	LICENSEMACRO(home,"STR_License_Home","home",2000000,false,"civ")
+	LICENSEMACRO(diamond,"STR_License_Diamond","diamond",35000,false,"civ")
+	LICENSEMACRO(salt,"STR_License_Salt","salt",12000,false,"civ")
+	LICENSEMACRO(cocaine,"STR_License_Cocaine","cocaine",30000,false,"civ")
+	LICENSEMACRO(sand,"STR_License_Sand","sand",14500,false,"civ")
+	LICENSEMACRO(iron,"STR_License_Iron","iron",9500,false,"civ")
+	LICENSEMACRO(copper,"STR_License_Copper","copper",8000,false,"civ")
+	LICENSEMACRO(cement,"STR_License_Cement","cement",6500,false,"civ")
+	LICENSEMACRO(mAir,"STR_License_Pilot","mAir",15000,false,"med")
+	LICENSEMACRO(home,"STR_License_Home","home",75000,false,"civ")
+	LICENSEMACRO(donate,"STR_Licence_Donate","Donate",0,false,"civ")
 };
 
 class VirtualShops {

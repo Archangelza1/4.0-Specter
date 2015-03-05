@@ -7,7 +7,7 @@
 	Opens and initializes the clothing store menu.
 	Started clean, finished messy.
 */
-private["_list","_clothes","_pic","_filter","_pos","_oldPos","_oldDir","_flag","_shopTitle","_license","_shopSide","_exit", "_light"];
+private["_list","_clothes","_pic","_filter","_pos","_oldPos","_oldDir","_flag","_shopTitle","_license","_shopSide","_exit"];
 _exit = false;
 
 /* License check & config validation */
@@ -25,10 +25,10 @@ if(_exit) exitWith {};
 _flag = switch(playerSide) do {case west: {"cop"}; case independent: {"med"}; default {"civ"};};
 if(!(EQUAL(_flag,_shopSide))) exitWith {};
 
-ctrlSetText [3103,localize _shopTitle];
 /* Open up the menu */
 createDialog "Life_Clothing";
 disableSerialization;
+ctrlSetText [3103,localize _shopTitle];
 
 //Cop / Civ Pre Check
 if((SEL(_this,3) in ["bruce","dive","reb","kart"] && playerSide != civilian)) exitWith {hint localize "STR_Shop_NotaCiv"; closeDialog 0;};
@@ -58,10 +58,6 @@ _ut5 attachTo [_testLogic,[0,0,0]];
 _ut5 setObjectTexture [0,"a3\map_data\gdt_concrete_co.paa"];
 detach _ut5;
 _ut5 setVectorDirAndUp [[0,0,-.33],[0,.33,0]];
-_light = "#lightpoint" createVehicleLocal [1000,1000,10000];   
-_light setLightBrightness 1;  
-_light setLightAmbient [1.0, 1.0, 1.0];
-_light lightAttachObject [_ut1, [0,0,10]];
 
 {if(_x != player) then {_x hideObject true;};} foreach playableUnits;
 
@@ -123,7 +119,7 @@ waitUntil {isNull (findDisplay 3100)};
 detach player;
 player setPosASL _oldPos;
 player setDir _oldDir;
-{deleteVehicle _x;} foreach [_testLogic,_ut1,_ut2,_ut3,_ut4,_ut5,_light];
+{deleteVehicle _x;} foreach [_testLogic,_ut1,_ut2,_ut3,_ut4,_ut5];
 life_shop_cam cameraEffect ["TERMINATE","BACK"];
 camDestroy life_shop_cam;
 life_clothing_filter = 0;

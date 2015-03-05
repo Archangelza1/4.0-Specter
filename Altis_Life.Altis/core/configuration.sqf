@@ -15,6 +15,7 @@ life_garage_store = false;
 life_session_tries = 0;
 life_net_dropped = false;
 life_siren_active = false;
+life_medicSiren2_active = false;
 life_clothing_filter = 0;
 life_clothing_uniform = -1;
 life_redgull_effect = time;
@@ -34,6 +35,9 @@ life_vdCar = viewDistance;
 life_vdAir = viewDistance;
 tawvd_addon_disable = true;
 life_fadeSound = false;
+life_god = false; 
+life_frozen = false; 
+life_markers = false; 
 
 //Uniform price (0),Hat Price (1),Glasses Price (2),Vest Price (3),Backpack Price (4)
 life_clothing_purchase = [-1,-1,-1,-1,-1];
@@ -43,7 +47,6 @@ life_clothing_purchase = [-1,-1,-1,-1,-1];
 *****************************
 */
 life_maxWeight = LIFE_SETTINGS(getNumber,"total_maxWeight");
-life_maxWeightT = LIFE_SETTINGS(getNumber,"total_maxWeightT");
 life_carryWeight = 0; //Represents the players current inventory weight (MUST START AT 0).
 
 /*
@@ -64,17 +67,21 @@ life_vehicles = [];
 
 switch (playerSide) do {
 	case west: {
-		BANK = 250000; //Starting Bank Money
+		BANK = 100000; //Starting Bank Money
 		life_paycheck = 5000; //Paycheck Amount
 	};
 	
 	case civilian: {
-		BANK = 250000; //Starting Bank Money
+		BANK = 100000; //Starting Bank Money
 		life_paycheck = 5000; //Paycheck Amount
 	};
 	
 	case independent: {
-		BANK = 250000;
+		BANK = 100000;
+		life_paycheck = 5000;
+	};
+	case east: {
+		BANK = 100000;
 		life_paycheck = 5000;
 	};
 };

@@ -6,7 +6,7 @@
 	Description:
 	Sell a virtual item to the store / shop
 */
-private["_type","_index","_price","_amount","_name"];
+private["_type","_index","_price","_amount","_name""_marketprice"];
 if(EQUAL(lbCurSel 2402,-1)) exitWith {};
 _type = lbData[2402,(lbCurSel 2402)];
 _price = M_CONFIG(getNumber,"VirtualItems",_type,"sellPrice");

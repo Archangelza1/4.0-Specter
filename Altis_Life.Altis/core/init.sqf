@@ -67,6 +67,11 @@ switch (playerSide) do {
 		_handle = [] spawn life_fnc_initMedic;
 		waitUntil {scriptDone _handle};
 	};
+	 case east: {
+		//Initialize Bounty
+		_handle = [] spawn life_fnc_initBounty;
+		waitUntil {scriptDone _handle};
+	};
 };
 
 player SVAR ["restrained",false,true];
@@ -104,6 +109,7 @@ life_fnc_moveIn = compileFinal
 ";
 
 [] spawn life_fnc_survival;
+[] execVM "core\welcome2.sqf";
 
 CONSTVAR(life_paycheck); //Make the paycheck static.
 if(EQUAL(LIFE_SETTINGS(getNumber,"enable_fatigue"),0)) then {player enableFatigue false;};

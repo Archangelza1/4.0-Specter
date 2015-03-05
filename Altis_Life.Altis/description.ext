@@ -1,7 +1,6 @@
-#include "infiSTAR_AdminMenu.hpp"
-author = "Tonic, Edited By Jamie, Archangel";
+author = "Tonic, Edited by Archangel, Jamie";
 onLoadName = "Altis Life RPG v4.0";
-onLoadMission = "Map Editing Done By Distinct";
+onLoadMission = "Map By Distinct";
 joinUnassigned = 1;
 respawn = BASE;
 respawndelay = 5;
@@ -31,12 +30,130 @@ SPY_Enable = true;
 
 #include "dialog\MasterHandler.h"
 #include "Config_Master.hpp"
+#include "custom\=BTC=_Logistic\=BTC=_Lift\=BTC=_Hud.h"
+
 
 class RscTitles
 {
-	#include "dialog\ui.hpp"
+	
 	#include "dialog\progress.hpp"
 	#include "dialog\hud_nameTags.h"
+	#include "dialog\ui.hpp"
+	
+	//BTC
+	class BTC_Hud
+   	{
+      	idd = 1000;
+     	movingEnable=0;
+      	duration=1e+011;
+      	name = "BTC_Hud_Name";
+      	onLoad = "uiNamespace setVariable [""HUD"", _this select 0];";
+      	controlsBackground[] = {};
+      	objects[] = {};
+      	class controls 
+		{
+			class Radar
+			{
+				type = CT_STATIC;
+				idc = 1001;
+				style = ST_PICTURE;
+				x = (SafeZoneW+2*SafeZoneX) - 0.1;//safezonex + 0.1;//0.9
+				y = (SafeZoneH+2*SafeZoneY) - 0.15;//safezoney + 0.1;//0.85
+				w = 0.3;
+				h = 0.4;
+				font = "Zeppelin32";
+				sizeEx = 0.03;
+				colorBackground[] = {0, 0, 0, 0};
+				colorText[] = {1, 1, 1, 1};
+				text = "\ca\ui\data\igui_radar_air_ca.paa";
+			};
+			class Img_Obj
+			{
+				type = CT_STATIC;
+				idc = 1002;
+				style = ST_PICTURE;
+				x = (SafeZoneW+2*SafeZoneX) + 0.045;
+				y = (SafeZoneH+2*SafeZoneY) + 0.045;
+				w = 0.01;
+				h = 0.01;
+				font = "Zeppelin32";
+				sizeEx = 0.04;
+				colorBackground[] = {0, 0, 0, 0};
+				colorText[] = {1, 1, 1, 1};
+				text = "custom\=BTC=_Logistic\=BTC=_Lift\=BTC=_Obj.paa";
+			};
+			class Pic_Obj
+			{
+				type = CT_STATIC;
+				idc = 1003;
+				style = ST_PICTURE;
+				x = (SafeZoneW+2*SafeZoneX) - 0.125;
+				y = (SafeZoneH+2*SafeZoneY) - 0.23;
+				w = 0.1;
+				h = 0.1;
+				font = "Zeppelin32";
+				sizeEx = 0.03;
+				colorBackground[] = {0, 0, 0, 0};
+				colorText[] = {1, 1, 1, 1};
+				text = "";
+			};
+			class Arrow
+			{
+				type = CT_STATIC;
+				idc = 1004;
+				style = ST_PICTURE;
+				x = (SafeZoneW+2*SafeZoneX) + 0.15;
+				y = (SafeZoneH+2*SafeZoneY) - 0.15;
+				w = 0.05;
+				h = 0.05;
+				font = "Zeppelin32";
+				sizeEx = 0.03;
+				colorBackground[] = {0, 0, 0, 0};
+				colorText[] = {1, 1, 1, 1};
+				text = "";
+			};
+			class Type_Obj
+			{
+				type = CT_STATIC;
+				idc = 1005;
+				style = ST_LEFT;
+				x = (SafeZoneW+2*SafeZoneX) - 0.03;
+				y = (SafeZoneH+2*SafeZoneY) - 0.335;
+				w = 0.3;
+				h = 0.3;
+				font = "Zeppelin32";
+				sizeEx = 0.03;
+				colorBackground[] = {0, 0, 0, 0};
+				colorText[] = {1, 1, 1, 1};
+				text = "";
+			};
+		};   
+ 	};	
+	
+	class introLife
+	{
+	idd = -1;
+	duration = 6;
+	class controls
+		{
+         class ExampleControl
+			{
+				idc = -1;
+				type = 0;
+				style = 2192;
+				x = 0.125;
+				y = 0.125;
+				h = 0.75;
+				w = 0.75;
+				font = "EtelkaNarrowMediumPro";
+				sizeEx = 0.05; 
+				colorBackground[] = {1,1,1,0};
+				colorText[] = {1,1,1,1};
+				text = "textures\logo2.paa";      
+				lineSpacing = 1;
+			}; 
+		}; 
+	}; 
 };
 
 class CfgFunctions
@@ -65,6 +182,30 @@ class CfgSounds
 	{
 		name = "flashbang";
 		sound[] = {"\sounds\flashbang.ogg", 1.0, 1};
+		titles[] = {};
+	};
+	class car_lock
+	{
+		name = "car_lock";
+		sound[] = {"\sounds\cars\car_lock.ogg", 1.0, 1};
+		titles[] = {};
+	};
+	class unlock
+	{
+		name = "unlock";
+		sound[] = {"\sounds\cars\unlock.ogg", 1.0, 1};
+		titles[] = {};
+	};
+	class MediSiren
+	{
+		name = "MediSiren";
+		sound[] = {"\sounds\medi_siren.ogg", 1.0, 1};
+		titles[] = {};
+	};
+	class medicSiren2
+	{
+		name = "medicSiren2";
+		sound[] = {"\sounds\medi_yelp.ogg", 1.0, 1};
 		titles[] = {};
 	};
 };
@@ -171,6 +312,15 @@ class CfgNotifications
 	{
 		title = "Admin Message";
 		iconPicture = "icons\messageadmin.paa";
+		description = "%1";
+		duration = 10;
+		priority = 5;
+	};
+	
+	class BountyMessage
+	{
+		title = "Bounty Message";
+		iconPicture = "icons\messagenew.paa";
 		description = "%1";
 		duration = 10;
 		priority = 5;

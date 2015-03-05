@@ -181,11 +181,11 @@ player createDiarySubject ["controls","Controls"];
 				
 				Items on this list may result in your removal from the server and/or ban, based on the admins discretion.<br/><br/>
 
-				1. If you are killed you must wait 30 minutes before returning to the scene of your death.<br/>
+				1. If you are killed you must wait 15 minutes before returning to the scene of your death.<br/>
 				2. If you die during roleplay your past crimes are forgotten, but you also cannot seek revenge.<br/>
 				3. If you are RDM'd, it is not a new life.<br/>
 				4. If you manually respawn, it is not a new life.<br/>
-				5. If you purposefully kill yourself to avoid roleplay, it is not a new life. Please refer to 'Exploits'.<br/><br/>
+				5. If you purposefully kill yourself to avoid roleplay, it is not a new life.<br/><br/>
 				"
 		]
 	];

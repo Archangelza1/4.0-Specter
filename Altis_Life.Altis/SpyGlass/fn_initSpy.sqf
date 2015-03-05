@@ -126,6 +126,8 @@ _patchList =
 "A3_Soft_F_Heli_Truck","A3_UI_F_Heli","A3_Air_F_Heli","A3_Air_F_Heli_Heli_Attack_01","A3_Air_F_Heli_Heli_Attack_02","A3_Air_F_Heli_Heli_Light_01","A3_Air_F_Heli_Heli_Light_02","A3_Air_F_Heli_Heli_Light_03",
 "A3_Air_F_Heli_Heli_Transport_01","A3_Air_F_Heli_Heli_Transport_02","A3_Air_F_Heli_Heli_Transport_03","A3_Air_F_Heli_Heli_Transport_04",
 "A3_CargoPoses_F_Heli","A3_Soft_F_Heli_Crusher_UGV"
+//Extras
+
 ];
 
 uiNamespace setVariable["RscDisplayRemoteMissions",displayNull]; //For Spy-Glass..

@@ -9,6 +9,9 @@
 #define IDC_LIFE_FOOD_TEXT 1000
 #define IDC_LIFE_WATER_TEXT 1001
 #define IDC_LIFE_HEALTH_TEXT 1002
+#define IDC_LIFE_BAR_WANTED 2204
+#define IDC_LIFE_PICTURE_WANTED 1203
+#define IDC_LIFE_WANTED_TEXT 1003
 /*
 	Name: Dillon "Itsyuka" Modine-Thuen
 	File: ui.hpp
@@ -33,7 +36,10 @@ class playerHUD {
 		LIFE_PICTURE_HEALTH,
 		LIFE_FOOD_TEXT,
 		LIFE_WATER_TEXT,
-		LIFE_HEALTH_TEXT
+		LIFE_HEALTH_TEXT,
+		LIFE_BAR_WANTED,
+		LIFE_PICTURE_WANTED,
+		LIFE_WANTED_TEXT
 	};
 
 	/* Background */
@@ -44,7 +50,7 @@ class playerHUD {
 		x = 0.917656 * safezoneW + safezoneX;
 		y = 0.819 * safezoneH + safezoneY;
 		w = 0.0825 * safezoneW;
-		h = 0.11 * safezoneH;
+		h = 0.14 * safezoneH;
 	};
 
 	/* Progress Bars */
@@ -69,6 +75,14 @@ class playerHUD {
 		idc = 2202;
 		x = 0.938281 * safezoneW + safezoneX;
 		y = 0.896 * safezoneH + safezoneY;
+		w = 0.061875 * safezoneW;
+		h = 0.022 * safezoneH;
+	};
+	class LIFE_BAR_WANTED: Life_RscProgress
+	{
+		idc = 2204;
+		x = 0.938281 * safezoneW + safezoneX;
+		y = 0.929 * safezoneH + safezoneY;
 		w = 0.061875 * safezoneW;
 		h = 0.022 * safezoneH;
 	};
@@ -102,6 +116,15 @@ class playerHUD {
 		w = 0.020625 * safezoneW;
 		h = 0.011 * safezoneH;
 	};
+	class LIFE_WANTED_TEXT: Life_RscText
+	{
+		idc = IDC_LIFE_WANTED_TEXT;
+		text = "textures\wanted.paa";
+		x = 0.958906 * safezoneW + safezoneX;
+		y = 0.9334 * safezoneH + safezoneY;
+		w = 0.020625 * safezoneW;
+		h = 0.011 *safezoneH;
+	};
 
 	/* Icons */
 	class LIFE_PICTURE_FOOD: life_RscPicture
@@ -126,6 +149,14 @@ class playerHUD {
 		text = "icons\health.paa";
 		x = 0.922813 * safezoneW + safezoneX;
 		y = 0.896 * safezoneH + safezoneY;
+		w = 0.03; h = 0.04;
+	};
+	class LIFE_PICTURE_WANTED: life_RscPicture
+	{
+		idc = IDC_LIFE_PICTURE_WANTED;
+		text = "icons\wanted.paa";
+		x = 0.922813 * safezoneW + safezoneX;
+		y = 0.929 * safezoneH + safezoneY;
 		w = 0.03; h = 0.04;
 	};
 };
